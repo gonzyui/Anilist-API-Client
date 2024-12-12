@@ -1,0 +1,19 @@
+{
+  "name": "anilist-api-client",
+  "version": "1.0.0",
+  "type": "module",
+  "keywords": ["anilist", "wrapper", "anilistapi"],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/test.js"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.0"
+  },
+  "author": "gonzyui",
+  "license": "MIT",
+  "repository": "https://github.com/gonzyui/Anilist-API-Client"
+}
