@@ -1,12 +1,43 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
-    "target": "ES6",
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node"
+    /* Modules and Output */
+    "module": "CommonJS",                 // Utilisé pour la compatibilité avec Node.js
+    "moduleResolution": "Node",           // Permet de résoudre les modules comme Node.js
+    "target": "ES2020",                   // Version ECMAScript cible pour le code généré
+    "outDir": "./dist",                   // Dossier où seront placés les fichiers compilés
+    "declaration": true,                  // Génère les fichiers .d.ts pour TypeScript
+    "declarationMap": true,               // Map les déclarations aux fichiers source
+    "sourceMap": true,                    // Génère des sourcemaps pour faciliter le debug
+    "resolveJsonModule": true,            // Permet d'importer des fichiers JSON
+
+    /* Type Checking */
+    "strict": true,                       // Active toutes les vérifications strictes
+    "noImplicitAny": true,                // Empêche l'utilisation de `any` implicite
+    "strictNullChecks": true,             // Gère les null et undefined avec précaution
+    "strictFunctionTypes": true,          // Vérifie les types de fonctions strictement
+    "strictBindCallApply": true,          // Vérifie les appels de `bind`, `call` et `apply`
+
+    /* Code Quality */
+    "noUnusedLocals": true,               // Empêche les variables inutilisées
+    "noUnusedParameters": true,           // Empêche les paramètres inutilisés
+    "noImplicitReturns": true,            // Vérifie que toutes les fonctions renvoient une valeur
+    "noFallthroughCasesInSwitch": true,   // Évite les erreurs dans les switch sans break
+
+    /* Compatibility */
+    "esModuleInterop": true,              // Facilite l'importation des modules CommonJS
+    "allowSyntheticDefaultImports": true, // Permet d'utiliser des imports par défaut pour des modules CommonJS
+    "forceConsistentCasingInFileNames": true, // Vérifie la casse des noms de fichiers
+
+    /* Library Options */
+    "lib": ["ES2020", "DOM"],             // Inclut les types ECMAScript et DOM pour la compatibilité navigateur
+    "skipLibCheck": true                  // Ignore les vérifications dans les fichiers .d.ts tiers
   },
-  "include": ["src"]
+  "include": [
+    "src/**/*.ts"                         // Inclut tous les fichiers TypeScript dans le dossier src
+  ],
+  "exclude": [
+    "node_modules",                       // Exclut les dépendances
+    "dist",                               // Exclut les fichiers générés
+    "tests"                               // Exclut les tests unitaires
+  ]
 }
