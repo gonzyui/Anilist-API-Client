@@ -22,25 +22,25 @@ In a JavaScript or TypeScript project, you can import the module as follows:
 
 #### **JavaScript:**
 ```javascript
-const { AnimeMangaWrapper } = require('anime-manga-wrapper');
+const { AnilistAPIClient } = require('anime-api-client');
 ```
 
 #### **TypeScript:**
 ```typescript
-import { AnimeMangaWrapper } from 'anime-manga-wrapper';
+import { AnilistAPIClient } from 'anime-api-client';
 ```
 
 ---
 
 ## Module Configuration
-When initializing `AnimeMangaWrapper`, you can pass options to customize its behavior:
+When initializing `AnilistAPIClient`, you can pass options to customize its behavior:
 
 ### **Available Options:**
 - `apiUrl` *(optional)*: The GraphQL API URL. Default: `https://graphql.anilist.co`.
 
 ### **Initialization Example:**
 ```javascript
-const wrapper = new AnimeMangaWrapper({ apiUrl: "https://graphql.anilist.co" });
+const client = new AnilistAPIClient({ apiUrl: "https://graphql.anilist.co" });
 ```
 
 ---
@@ -48,7 +48,7 @@ const wrapper = new AnimeMangaWrapper({ apiUrl: "https://graphql.anilist.co" });
 ## Classes and Methods
 The module is divided into two main subclasses: **Anime** and **Manga**.
 
-### Main Class: `AnimeMangaWrapper`
+### Main Class: `AnilistAPIClient`
 This class serves as the main interface for accessing module functionality.
 
 ### Subclass: `Anime`
@@ -82,7 +82,7 @@ Searches for an anime by its ID.
 
 ##### **Example:**
 ```javascript
-const anime = await wrapper.anime.getById(20);
+const anime = await client.anime.getById(20);
 console.log(anime);
 ```
 
@@ -104,7 +104,7 @@ Searches for a manga by its title.
 
 ##### **Example:**
 ```javascript
-const manga = await wrapper.manga.getByTitle('One Piece');
+const manga = await client.manga.getByTitle('One Piece');
 console.log(manga);
 ```
 
@@ -119,7 +119,7 @@ Searches for a manga by its ID.
 
 ##### **Example:**
 ```javascript
-const manga = await wrapper.manga.getById(1);
+const manga = await client.manga.getById(1);
 console.log(manga);
 ```
 
@@ -133,7 +133,7 @@ If a missing title or ID is provided, an error is thrown:
 
 ```javascript
 try {
-  const anime = await wrapper.anime.getByTitle('');
+  const anime = await client.anime.getByTitle('');
 } catch (error) {
   console.error(error.message); // "A title is required to perform a search."
 }
@@ -143,7 +143,7 @@ try {
 In case of network errors or issues with the API:
 ```javascript
 try {
-  const manga = await wrapper.manga.getById(9999999);
+  const manga = await client.manga.getById(9999999);
 } catch (error) {
   console.error(error.message); // "Error fetching data: ..."
 }
@@ -155,22 +155,22 @@ try {
 Here is an example demonstrating the main features of the module:
 
 ```javascript
-const { AnimeMangaWrapper } = require('anime-manga-wrapper');
+const { AnilistAPIClient } = require('anime-api-client');
 
 (async () => {
   // Module initialization
-  const wrapper = new AnimeMangaWrapper();
+  const client = new AnilistAPIClient();
 
   // Search for an anime by title
   try {
-    const anime = await wrapper.anime.getByTitle('Naruto');
+    const anime = await client.anime.getByTitle('Naruto');
     console.log('Found anime:', anime);
   } catch (error) {
     console.error('Error:', error.message);
   }
 
   try {
-    const anime = await wrapper.anime.getById(20);
+    const anime = await client.anime.getById(20);
     console.log('Found anime (EN):', anime);
   } catch (error) {
     console.error('Error:', error.message);
@@ -184,7 +184,7 @@ To use this module in a Discord bot, you can create a command that retrieves ani
 **Discord bot example**:
 ```js
 const { Client, GatewayIntentBits } = require('discord.js');
-const { AnimeMangaWrapper } = require('anime-manga-wrapper');
+const { AnilistAPIClient } = require('anime-api-client');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
 

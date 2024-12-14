@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AnimeMangaWrapper = void 0;
+exports.AnilistAPIClient = void 0;
 const anime_1 = require("./services/anime");
 const manga_1 = require("./services/manga");
-exports.AnimeMangaWrapper = {
+exports.AnilistAPIClient = {
     anime: {
         getByTitle: anime_1.fetchAnimeByTitle,
         getRecommendations: anime_1.fetchAnimeRecommendations,

@@ -1,6 +1,6 @@
 import { fetchAnimeByTitle, fetchAnimeRecommendations } from './services/anime';
 import { fetchMangaByTitle, fetchMangaRecommendations } from './services/manga';
-export declare const AnimeMangaWrapper: {
+export declare const AnilistAPIClient: {
     anime: {
         getByTitle: typeof fetchAnimeByTitle;
         getRecommendations: typeof fetchAnimeRecommendations;
